@@ -35,21 +35,26 @@ function App() {
   
   return (
     <div className="App">
-      <TemplateLoader 
-      onLoadDefault={loadDefaultBasicInfo} 
-      onClear={clearBasicInfo}
-      />
-      <BasicInfo 
-        onChange={handleBasicInfoChange} 
-        fullName={basicInfo.fullName} 
-        email={basicInfo.email} 
-        phoneNumber={basicInfo.phoneNumber} 
-        linkedInLink={basicInfo.linkedInLink} 
-        githubLink={basicInfo.githubLink} 
-      />
-      <Resume 
-      basicInfo = {basicInfo}
-      />
+      <div className='cv-inputs'>
+        <TemplateLoader 
+        onLoadDefault={loadDefaultBasicInfo} 
+        onClear={clearBasicInfo}
+        />
+        <BasicInfo 
+          onChange={handleBasicInfoChange} 
+          fullName={basicInfo.fullName} 
+          email={basicInfo.email} 
+          phoneNumber={basicInfo.phoneNumber} 
+          linkedInLink={basicInfo.linkedInLink} 
+          githubLink={basicInfo.githubLink} 
+        />
+      </div>
+
+      <div className='cv-outputs'>
+        <Resume 
+        basicInfo = {basicInfo}
+        />
+      </div>
     </div>
   );
 }
