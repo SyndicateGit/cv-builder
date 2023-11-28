@@ -1,5 +1,4 @@
 import * as React from 'react';
-import InputGroup from './InputGroup';
 import '../styles/TemplateLoader.css';
 
 type props = {
