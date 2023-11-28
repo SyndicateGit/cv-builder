@@ -4,6 +4,7 @@ import { v4 as uuid } from 'uuid';
 import BasicInfo from './components/BasicInfo';
 import TemplateLoader from './components/TemplateLoader';
 import defaultData from './default-data';
+import Resume from './components/Resume';
 
 
 
@@ -45,6 +46,9 @@ function App() {
         phoneNumber={basicInfo.phoneNumber} 
         linkedInLink={basicInfo.linkedInLink} 
         githubLink={basicInfo.githubLink} 
+      />
+      <Resume 
+      basicInfo = {basicInfo}
       />
     </div>
   );
