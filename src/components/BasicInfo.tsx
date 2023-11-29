@@ -17,6 +17,7 @@ export default function BasicInfo(props:props){
     <>
       <form action="" className='basic-info'>
         <h2>General Information</h2>
+        <div className='input-field'>
         <InputGroup 
           onChange={props.onChange}
           type='text'
@@ -62,6 +63,8 @@ export default function BasicInfo(props:props){
           value={props.githubLink}
           dataKey='githubLink'        
         />
+        </div>
+        
       </form>
     </>
   )

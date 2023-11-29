@@ -12,9 +12,23 @@ import Education from './components/Education';
 
 
 function App() {
+
+  // Manages General Information Section.
   const [basicInfo, setBasicInfo] = React.useState(defaultData.BasicInfo)
 
-  const[education, setEducation] = React.useState([]);
+  // Manages Education form
+  const[education, setEducation] = React.useState({
+   degree: '',
+   school: '',
+   city: '',
+   province: '',
+   startDate: '',
+   endDate: '',
+  });
+
+  // Manages Educations list of submitted education form
+  // Use this list to update resume section upon submission 
+  const[educationList, setEducationList] = React.useState([]);
 
   function loadDefaultBasicInfo(){
     setBasicInfo(defaultData.BasicInfo);
@@ -30,22 +44,36 @@ function App() {
     })
   }
 
-  function loadDefaultEducationInfo(){
+  function addEducationList(){
 
+  }
+
+  function loadEducationList(){
+    
   }
 
   function clearEducationInfo(){
-
+    setEducation({
+      degree: '',
+      school: '',
+      city: '',
+      province: '',
+      startDate: '',
+      endDate: '',
+    })
   }
 
   function handleBasicInfoChange(e:any){ // TODO: Fix event type
-    /*Fetches data-key attribute of the input field being modified in BasicInfo component. Data-key corresponds to the key in basicInfo state object for field being changed*/ 
+    /*Fetches data-key attribute of the input field being modified in component. Data-key corresponds to the key in basicInfo state object for field being changed*/ 
+
     const { key } = e.target.dataset;
     setBasicInfo({ ...basicInfo, [key]: e.target.value });
   }
   
   function handleEducationInfoChange(e:any){ // TODO: Fix event type
-
+    const { key } = e.target.dataset;
+    setEducation({ ...education, [key]: e.target.value });
+   
   }
   return (
     <div className="App">
@@ -62,7 +90,16 @@ function App() {
           linkedInLink={basicInfo.linkedInLink} 
           githubLink={basicInfo.githubLink} 
         />
-        <Education/>
+        <Education 
+          onChange={handleEducationInfoChange} 
+          degree={education.degree} 
+          school={education.school} 
+          city={education.city} 
+          province={education.province} 
+          startDate={education.startDate} 
+          endDate={education.endDate}
+          clear = {clearEducationInfo}
+        />
       </div>
 
       <div className='cv-outputs'>
