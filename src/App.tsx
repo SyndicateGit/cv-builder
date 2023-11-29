@@ -7,10 +7,6 @@ import defaultData from './default-data';
 import Resume from './components/Resume';
 import Education from './components/Education';
 
-
-
-
-
 function App() {
 
   // Manages General Information Section.
@@ -45,11 +41,14 @@ function App() {
   }
 
   function addEducationList(){
-
+    setEducationList([
+      ...educationList,
+      education
+    ])
   }
 
   function loadEducationList(){
-    
+
   }
 
   function clearEducationInfo(){
@@ -73,7 +72,6 @@ function App() {
   function handleEducationInfoChange(e:any){ // TODO: Fix event type
     const { key } = e.target.dataset;
     setEducation({ ...education, [key]: e.target.value });
-   
   }
   return (
     <div className="App">
@@ -99,6 +97,7 @@ function App() {
           startDate={education.startDate} 
           endDate={education.endDate}
           clear = {clearEducationInfo}
+          addEducationList = {addEducationList}
         />
       </div>
 
