@@ -3,6 +3,7 @@ import InputGroup from './InputGroup';
 import '../styles/Education.css';
 import Icon from '@mdi/react';
 import { mdiArrowDownDropCircleOutline } from '@mdi/js';
+import { mdiArrowUpDropCircleOutline } from '@mdi/js';
 
 
 // type props = {
@@ -15,11 +16,21 @@ import { mdiArrowDownDropCircleOutline } from '@mdi/js';
 // }
 
 export default function Education(props:any){
-  const [displayDropDown, setDisplayDropDown] = React.useState('hide');
+
+  const displayEducationState = {
+    display: 'hide',
+    icon: mdiArrowDownDropCircleOutline
+  }
+
+  const [displayDropDown, setDisplayDropDown] = React.useState(displayEducationState);
 
   function handleDisplayDropDown(){
-    setDisplayDropDown(displayDropDown === "hide"? "show":"hide");
+    setDisplayDropDown({
+      display: displayDropDown.display === 'hide'? 'show':'hide',
+      icon: displayDropDown.icon === mdiArrowDownDropCircleOutline ? mdiArrowUpDropCircleOutline: mdiArrowDownDropCircleOutline,
+    });
   }
+
   return (
     <>
       <form action="" className='education-info'>
@@ -28,11 +39,11 @@ export default function Education(props:any){
           <button className="drop-down-button" 
           type="button"
           onClick={handleDisplayDropDown}>
-            <Icon path={mdiArrowDownDropCircleOutline}
+            <Icon path={displayDropDown.icon}
             size={1}
             />
           </button>
-          <div className={displayDropDown}>
+          <div className={displayDropDown.display}>
             <InputGroup onChange={function (e: any): void {
               throw new Error('Function not implemented.');
             } } type={''} id={''} labelText={''} placeholder={''} value={''} dataKey={''}/>
