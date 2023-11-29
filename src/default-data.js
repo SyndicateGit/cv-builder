@@ -15,7 +15,6 @@ const defaultData = {
     province: "Ontario",
     startDate: "05/01/2023",
     endDate: "04/30/2025",
-    gpa: "4.0/4.0"
   },
   EducationInfo2:{
     degree: "BSc for Molecular Genetics and Microbiology",
@@ -24,7 +23,6 @@ const defaultData = {
     province: "Ontario",
     startDate: "09/01/2016",
     endDate: "04/30/2020",
-    gpa: "3.6/4.0"
   },
 }
 
