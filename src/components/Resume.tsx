@@ -1,15 +1,30 @@
 import * as React from 'react';
 import '../styles/Resume.css';
 
-type props = {
-  basicInfo:{
-    fullName: string,
-    email: string,
-    phoneNumber: string,
-    linkedInLink: string,
-    githubLink: string
-  }
+type basicInfo = {
+  fullName: string,
+  email: string,
+  phoneNumber: string,
+  linkedInLink: string,
+  githubLink: string
 }
+
+type education = {
+  degree: string,
+  school: string,
+  city: string,
+  province: string,
+  startDate: string,
+  endDate: string,
+}
+
+type educationList = education[];
+
+type props = {
+  basicInfo: basicInfo
+  educationList: educationList // TODO Fix Typing
+}
+
 
 export default function Resume(props:props){ //TODO: Define props type
 

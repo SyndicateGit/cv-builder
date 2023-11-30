@@ -5,3 +5,9 @@
 .show{
   display: flex;
 }
+
+/*Found in both BasicInfo and Education component*/
+.input-field{
+  display: flex;
+  flex-direction: column;
+}

@@ -47,10 +47,6 @@ function App() {
     ])
   }
 
-  function loadEducationList(){
-
-  }
-
   function clearEducationInfo(){
     setEducation({
       degree: '',
@@ -104,6 +100,7 @@ function App() {
       <div className='cv-outputs'>
         <Resume 
         basicInfo = {basicInfo}
+        educationList = {educationList}
         />
       </div>
     </div>
