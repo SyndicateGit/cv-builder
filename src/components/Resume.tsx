@@ -18,15 +18,31 @@ type education = {
   endDate: string,
 }
 
-type educationList = education[];
 
 type props = {
   basicInfo: basicInfo
-  educationList: educationList // TODO Fix Typing
+  educationList: education[] // TODO Fix Typing
 }
 
 
+const EducationList: React.FC<{list:education[]}> = ({list}) => {
+  // TODO: Figure out why <EducationList> wants list function method implementation. Find a workaround.
+  if(!list){
+    return <div></div>
+  }
+  return(
+    <>
+      {
+        list.map((education) => {
+            return <div>{education.school}</div>
+        })
+      }
+    </>
+  );
+}
+
 export default function Resume(props:props){ //TODO: Define props type
+  const list = props.educationList;
 
   return (
     <>
@@ -38,6 +54,13 @@ export default function Resume(props:props){ //TODO: Define props type
             <span className='contact'>{props.basicInfo.email}</span>
             <span className='contact'>{props.basicInfo.linkedInLink}</span>
             <span className='contact'>{props.basicInfo.githubLink}</span>
+          </div>
+        </div>
+        <div className='education-output'>
+          <h2>Education</h2>
+          <div className='education-list'>
+          <EducationList list={list}
+          />
           </div>
         </div>
       </div>
