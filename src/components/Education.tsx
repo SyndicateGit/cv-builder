@@ -99,8 +99,6 @@ export default function Education(props:props){
             </button>
           </div>
         </div>
-
-        
       </form>
     </>
   )
