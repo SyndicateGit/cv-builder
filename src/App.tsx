@@ -8,7 +8,6 @@ import Resume from './components/Resume';
 import Education from './components/Education';
 
 function App() {
-
   // Manages General Information Section.
   const [basicInfo, setBasicInfo] = React.useState(defaultData.BasicInfo)
 
@@ -20,6 +19,7 @@ function App() {
    province: '',
    startDate: '',
    endDate: '',
+   id: 0,
   });
 
   // Manages Educations list of submitted education form
@@ -41,10 +41,12 @@ function App() {
   }
 
   function addEducationList(){
-    setEducationList([
+    setEducationList((educationList) => ([
       ...educationList,
-      education
-    ])
+      {...education, id: education.id + 1}
+    ]));
+    setEducation({ ...education, id: education.id + 1});
+    console.log(education.id);
   }
 
   function clearEducationInfo(){
@@ -55,6 +57,7 @@ function App() {
       province: '',
       startDate: '',
       endDate: '',
+      id: education.id,
     })
   }
 

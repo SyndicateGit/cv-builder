@@ -16,6 +16,7 @@ type education = {
   province: string,
   startDate: string,
   endDate: string,
+  id: string
 }
 
 
@@ -34,7 +35,7 @@ const EducationList: React.FC<{list:education[]}> = ({list}) => {
     <>
       {
         list.map((education) => {
-            return <div>{education.school}</div>
+            return <div key={education.id}>{education.school}</div>
         })
       }
     </>

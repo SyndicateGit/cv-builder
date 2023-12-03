@@ -26,6 +26,7 @@ export default function InputGroup({onChange, type, id, labelText, placeholder, 
           onChange={onChange}
           value={value} 
           data-key={dataKey}
+          required
         />
       </div>
     </>
