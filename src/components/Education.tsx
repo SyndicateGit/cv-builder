@@ -34,6 +34,12 @@ export default function Education(props:props){
     });
   }
 
+  function addEducationList(){
+    props.addEducationList();
+    handleDisplayDropDown();
+    props.clear();
+  }
+
   return (
     <>
       <form action="" className='education-info'>
@@ -89,7 +95,7 @@ export default function Education(props:props){
             placeholder={'End Date'} 
             value={props.endDate} 
             dataKey={'endDate'}/>
-            <button onClick={props.addEducationList} type='button' className='submit-button'>
+            <button onClick={addEducationList} type='button' className='submit-button'>
               <Icon path={mdiContentSaveCheckOutline} size={1} />
               <span className='save'>Save</span>
             </button>

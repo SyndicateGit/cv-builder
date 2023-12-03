@@ -45,12 +45,13 @@ function App() {
       ...educationList,
       {...education, id: education.id + 1}
     ]));
-    setEducation({ ...education, id: education.id + 1});
-    console.log(education.id);
+    // Update id key for each education in education list to be unique.
+    setEducation((education) => ({ ...education, id: education.id + 1}));
+    console.log(education.id)
   }
 
   function clearEducationInfo(){
-    setEducation({
+    setEducation((education) => ({
       degree: '',
       school: '',
       city: '',
@@ -58,7 +59,7 @@ function App() {
       startDate: '',
       endDate: '',
       id: education.id,
-    })
+    }))
   }
 
   function handleBasicInfoChange(e:any){ // TODO: Fix event type
