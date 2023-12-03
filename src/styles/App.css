@@ -1,0 +1,40 @@
+:root{
+
+}
+
+body{
+  width: 100%;
+  height: 100%;
+}
+
+#root{
+  width: 100%;
+  height: 100%;
+}
+
+.App{
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 800px){
+  .App{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+  }
+}
+
+.cv-inputs{
+  flex: 1;
+  max-width: 400px;
+}
+
+.cv-outputs{
+  flex: 1;
+  max-width: 400px;
+}

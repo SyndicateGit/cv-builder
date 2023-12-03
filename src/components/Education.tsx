@@ -97,7 +97,7 @@ export default function Education(props:props){
             dataKey={'endDate'}/>
             <button onClick={addEducationList} type='button' className='submit-button'>
               <Icon path={mdiContentSaveCheckOutline} size={1} />
-              <span className='save'>Save</span>
+              <span className='Add'>Add</span>
             </button>
             <button onClick={props.clear} type='button' className='clear-button'>
               <Icon path={mdiContentSaveCheckOutline} size={1} />

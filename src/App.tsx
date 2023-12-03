@@ -6,6 +6,7 @@ import TemplateLoader from './components/TemplateLoader';
 import defaultData from './default-data';
 import Resume from './components/Resume';
 import Education from './components/Education';
+import EducationList from './components/EducationList';
 
 function App() {
   // Manages General Information Section.
@@ -88,17 +89,22 @@ function App() {
           linkedInLink={basicInfo.linkedInLink} 
           githubLink={basicInfo.githubLink} 
         />
-        <Education 
-          onChange={handleEducationInfoChange} 
-          degree={education.degree} 
-          school={education.school} 
-          city={education.city} 
-          province={education.province} 
-          startDate={education.startDate} 
-          endDate={education.endDate}
-          clear = {clearEducationInfo}
-          addEducationList = {addEducationList}
-        />
+        <div className='education-container'>
+          <Education 
+            onChange={handleEducationInfoChange} 
+            degree={education.degree} 
+            school={education.school} 
+            city={education.city} 
+            province={education.province} 
+            startDate={education.startDate} 
+            endDate={education.endDate}
+            clear = {clearEducationInfo}
+            addEducationList = {addEducationList}
+          />
+          <EducationList 
+          educationList={educationList}
+          />
+        </div>
       </div>
 
       <div className='cv-outputs'>
