@@ -6,6 +6,7 @@ import { mdiArrowDownDropCircleOutline } from '@mdi/js';
 import { mdiArrowUpDropCircleOutline } from '@mdi/js';
 import { mdiContentSaveCheckOutline } from '@mdi/js';
 
+
 type props = {
   onChange:(e:any) => void; //TODO: Fix event type
   degree: string;
@@ -16,27 +17,15 @@ type props = {
   endDate: string;
   clear: () => void;
   addEducationList: () => void;
+  handleDisplayDropdown: () => void;
+  displayDropDown: any; //TODO Fix type
 }
 
 export default function Education(props:props){
 
-  const displayEducationState = {
-    display: 'hide',
-    icon: mdiArrowDownDropCircleOutline
-  }
-
-  const [displayDropDown, setDisplayDropDown] = React.useState(displayEducationState);
-
-  function handleDisplayDropDown(){
-    setDisplayDropDown({
-      display: displayDropDown.display === 'hide'? 'show':'hide',
-      icon: displayDropDown.icon === mdiArrowDownDropCircleOutline ? mdiArrowUpDropCircleOutline: mdiArrowDownDropCircleOutline,
-    });
-  }
-
   function addEducationList(){
     props.addEducationList();
-    handleDisplayDropDown();
+    props.handleDisplayDropdown();
     props.clear();
   }
 
@@ -64,12 +53,12 @@ export default function Education(props:props){
           <h2>Education</h2>
           <button className="drop-down-button" 
           type="button"
-          onClick={handleDisplayDropDown}>
-            <Icon path={displayDropDown.icon}
+          onClick={props.handleDisplayDropdown}>
+            <Icon path={props.displayDropDown.icon}
             size={1}
             />
           </button>
-          <div className={displayDropDown.display + " input-field"}>
+          <div className={props.displayDropDown.display + " input-field"}>
             <InputGroup onChange={props.onChange} 
             type={'text'} 
             id={'degree'} 

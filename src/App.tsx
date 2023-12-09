@@ -7,6 +7,9 @@ import defaultData from './default-data';
 import Resume from './components/Resume';
 import Education from './components/Education';
 import EducationList from './components/EducationList';
+import Icon from '@mdi/react';
+import { mdiArrowDownDropCircleOutline } from '@mdi/js';
+import { mdiArrowUpDropCircleOutline } from '@mdi/js';
 
 type education = {
   degree: string,
@@ -95,6 +98,18 @@ function App() {
     // User would either add it back to save or clear to delete
     educationList.filter((education:education) => education.id !== id);
   }
+  const displayEducationState = {
+    display: 'hide',
+    icon: mdiArrowDownDropCircleOutline
+  }
+  const [displayDropDown, setDisplayDropDown] = React.useState(displayEducationState);
+
+  function handleDisplayDropDown(){
+    setDisplayDropDown({
+      display: displayDropDown.display === 'hide'? 'show':'hide',
+      icon: displayDropDown.icon === mdiArrowDownDropCircleOutline ? mdiArrowUpDropCircleOutline: mdiArrowDownDropCircleOutline,
+    });
+  }
 
   return (
     <div className="App">
@@ -122,6 +137,9 @@ function App() {
             endDate={education.endDate}
             clear = {clearEducationInfo}
             addEducationList = {addEducationList}
+            handleDisplayDropdown={handleDisplayDropDown}
+            displayDropDown={displayDropDown}
+            
           />
           <EducationList 
           educationList={educationList}
