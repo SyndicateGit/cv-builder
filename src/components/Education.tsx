@@ -18,7 +18,10 @@ type props = {
   clear: () => void;
   addEducationList: () => void;
   handleDisplayDropdown: () => void;
-  displayDropDown: any; //TODO Fix type
+  displayDropDown: {
+    display: string,
+    icon: string
+  }; 
 }
 
 export default function Education(props:props){
