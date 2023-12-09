@@ -21,6 +21,8 @@ type education = {
   id: number
 }
 
+type educationList = education[];
+
 function App() {
   // Manages General Information Section.
   const [basicInfo, setBasicInfo] = React.useState(defaultData.BasicInfo)
@@ -89,18 +91,19 @@ function App() {
 
   function editEducationListItem(e: any){
     // Fetch id of edit button clicked
+    // TODO: Fix bug, bug happens here. Sometimes button has target other time doesn't. Why?
+    // Bug happens at click, sometimes not button but the span/p inside button
     const button = e.target;
+    console.log(e)
     const id = parseInt(button.id)
-    
+    console.log(id);
+
    // Opens Education Form if hidden
    if(displayDropDown.display === 'hide'){
     handleDisplayDropDown();
   }
     // Load current item to be edited onto education
-    const item:education = educationList.find((education:education ) => education.id === id)
-
-    console.log(educationList)
-    console.log(item);
+    findEducation(id);
 
     // Set Education form info to item being edited
     // setEducation(item);
@@ -108,6 +111,12 @@ function App() {
     // // Deletes item from educationList
     // // User would either add it back to save or clear to delete
     // educationList.filter((education:education) => education.id !== id);
+  }
+
+  function findEducation(id: number){
+    educationList.forEach((education:education) => {
+      console.log(1 === id);
+    })
   }
   const displayEducationState = {
     display: 'hide',

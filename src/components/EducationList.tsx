@@ -50,9 +50,11 @@ const RenderEducationList: React.FC<{list:education[], editEducationListItem: (e
                 id={'' + education.id}
                 >
                   <Icon 
+                  className='disable-pointer-event'
                   path={mdiPlaylistEdit}
                   size={1}/>
-                  <span>Edit</span>
+                  <span 
+                  className='disable-pointer-event'>Edit</span>
                 </button>
                 </div>
                 

@@ -38,3 +38,9 @@ body{
   flex: 1;
   max-width: 400px;
 }
+
+/*Prevents e.target from returning anything but the button*/
+.disable-pointer-event{
+  pointer-events: none;
+}
+
