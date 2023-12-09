@@ -1,5 +1,7 @@
 import * as React from 'react';
 import '../styles/EducationList.css';
+import Icon from '@mdi/react';
+import { mdiPlaylistEdit } from '@mdi/js';
 
 type education = {
   degree: string,
@@ -24,7 +26,33 @@ const RenderEducationList: React.FC<{list:education[]}> = ({list}) => {
     <>
       {
         list.map((education) => {
-            return <div key={education.id}>{education.school}</div>
+            return (
+              <>
+              <div className='education-list'>
+                <div className='education-details'>
+                <p className='degree'>
+                  {education.degree}
+                </p>
+                <p className='school'>
+                  {education.school}
+                </p>
+                <p className='city-province'>{education.city}, {education.province}</p>
+                <p className='dates'>
+                  {education.startDate} - {education.endDate}
+                </p>
+                </div>
+
+                <button type='button'>
+                  <Icon 
+                  path={mdiPlaylistEdit}
+                  size={1}/>
+                  <span>Edit</span>
+                </button>
+              </div>
+              
+              </>
+            )
+           
         })
       }
     </>
