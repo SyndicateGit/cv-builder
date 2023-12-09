@@ -30,7 +30,7 @@ const RenderEducationList: React.FC<{list:education[], editEducationListItem: (e
         list.map((education) => {
             return (
               <>
-              
+                <div className='eduacation-item'>
                 <div className='education-details'>
                 <p className='degree'>
                   {education.degree}
@@ -54,6 +54,8 @@ const RenderEducationList: React.FC<{list:education[], editEducationListItem: (e
                   size={1}/>
                   <span>Edit</span>
                 </button>
+                </div>
+                
               </>
             )
            
