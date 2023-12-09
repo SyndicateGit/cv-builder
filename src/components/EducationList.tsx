@@ -2,6 +2,7 @@ import * as React from 'react';
 import '../styles/EducationList.css';
 import Icon from '@mdi/react';
 import { mdiPlaylistEdit } from '@mdi/js';
+import { editableInputTypes } from '@testing-library/user-event/dist/utils';
 
 type education = {
   degree: string,
@@ -10,15 +11,16 @@ type education = {
   province: string,
   startDate: string,
   endDate: string,
-  id: number
+  id: number,
 }
 
 type props = {
-  educationList: education[]
+  educationList: education[] ;
+  editEducationListItem: (e:any) => any; //TODO Fix Type
 }
 
-const RenderEducationList: React.FC<{list:education[]}> = ({list}) => {
-  // TODO: Figure out why <EducationList> wants list function method implementation. Find a workaround.
+//TODO: Fix Type
+const RenderEducationList: React.FC<{list:education[], editEducationListItem: (e:any) => any}> = ({list, editEducationListItem}) => {
   if(!list){
     return <div></div>
   }
@@ -28,7 +30,7 @@ const RenderEducationList: React.FC<{list:education[]}> = ({list}) => {
         list.map((education) => {
             return (
               <>
-              <div className='education-list'>
+              
                 <div className='education-details'>
                 <p className='degree'>
                   {education.degree}
@@ -42,14 +44,16 @@ const RenderEducationList: React.FC<{list:education[]}> = ({list}) => {
                 </p>
                 </div>
 
-                <button type='button'>
+                <button 
+                type='button'
+                onClick={editEducationListItem}
+                id={'' + education.id}
+                >
                   <Icon 
                   path={mdiPlaylistEdit}
                   size={1}/>
                   <span>Edit</span>
                 </button>
-              </div>
-              
               </>
             )
            
@@ -67,7 +71,8 @@ export default function EducationList(props:props){
     <>
       <div className='education-list'>
         <RenderEducationList 
-        list={props.educationList}        
+        list={props.educationList} 
+        editEducationListItem={props.editEducationListItem}       
         />
       </div>
     </>

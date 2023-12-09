@@ -61,7 +61,6 @@ function App() {
     ]));
     // Update id key for each education in education list to be unique.
     setEducation((education) => ({ ...education, id: education.id + 1}));
-    console.log(education.id)
   }
 
   function clearEducationInfo(){
@@ -88,15 +87,25 @@ function App() {
     setEducation({ ...education, [key]: e.target.value });
   }
 
-  function editEducationListItem(id: number){
+  function editEducationListItem(e: any){
+    // Fetch id of edit button clicked
+    const button = e.target;
+    const id = button.id
+    
+   // Opens Education Form if hidden
+   if(displayDropDown.display === 'hide'){
+    handleDisplayDropDown();
+  }
     // Load current item to be edited onto education
     const item:education = educationList.find((education:education ) => education.id === id)
 
-    setEducation(item);
+    console.log(item);
+    // // Set Education form info to item being edited
+    // setEducation(item);
 
-    // Deletes item from educationList
-    // User would either add it back to save or clear to delete
-    educationList.filter((education:education) => education.id !== id);
+    // // Deletes item from educationList
+    // // User would either add it back to save or clear to delete
+    // educationList.filter((education:education) => education.id !== id);
   }
   const displayEducationState = {
     display: 'hide',
@@ -142,7 +151,8 @@ function App() {
             
           />
           <EducationList 
-          educationList={educationList}
+            educationList={educationList}
+            editEducationListItem={editEducationListItem}
           />
         </div>
       </div>
