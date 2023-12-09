@@ -10,7 +10,7 @@ type education = {
   province: string,
   startDate: string,
   endDate: string,
-  id: string
+  id: number
 }
 
 type props = {

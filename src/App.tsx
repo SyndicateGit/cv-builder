@@ -8,6 +8,16 @@ import Resume from './components/Resume';
 import Education from './components/Education';
 import EducationList from './components/EducationList';
 
+type education = {
+  degree: string,
+  school: string,
+  city: string,
+  province: string,
+  startDate: string,
+  endDate: string,
+  id: number
+}
+
 function App() {
   // Manages General Information Section.
   const [basicInfo, setBasicInfo] = React.useState(defaultData.BasicInfo)
@@ -74,6 +84,18 @@ function App() {
     const { key } = e.target.dataset;
     setEducation({ ...education, [key]: e.target.value });
   }
+
+  function editEducationListItem(id: number){
+    // Load current item to be edited onto education
+    const item:education = educationList.find((education:education ) => education.id === id)
+
+    setEducation(item);
+
+    // Deletes item from educationList
+    // User would either add it back to save or clear to delete
+    educationList.filter((education:education) => education.id !== id);
+  }
+
   return (
     <div className="App">
       <div className='cv-inputs'>
