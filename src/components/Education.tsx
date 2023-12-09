@@ -40,6 +40,23 @@ export default function Education(props:props){
     props.clear();
   }
 
+  let disabledButton = '';
+
+  // Used to update both educations state and disabledButton upon form change
+  // We only need one of the onChange functions to call this since change in props.education also rerenders the component that calls for updateStateandButton
+  function updateStateAndButton(e: any){
+    props.onChange(e)
+    setDisabledButton();
+  }
+
+  function setDisabledButton(){
+    if(props.city === '' || props.degree === '' || props.endDate === '' || props.province === '' || props.school === '' || props.startDate === ''){
+      disabledButton = ' disabled';
+    }
+  }
+  
+  setDisabledButton();
+
   return (
     <>
       <form action="" className='education-info'>
@@ -74,7 +91,7 @@ export default function Education(props:props){
             placeholder={'City'} 
             value={props.city} 
             dataKey={'city'}/>
-            <InputGroup onChange={props.onChange} 
+            <InputGroup onChange={updateStateAndButton} 
             type={'text'} 
             id={'province'} 
             labelText={'Province'} 
@@ -95,11 +112,11 @@ export default function Education(props:props){
             placeholder={'End Date'} 
             value={props.endDate} 
             dataKey={'endDate'}/>
-            <button onClick={addEducationList} type='button' className='submit-button'>
+            <button onClick={addEducationList} type='button' className={'submit-button' + disabledButton}>
               <Icon path={mdiContentSaveCheckOutline} size={1} />
               <span className='Add'>Add</span>
             </button>
-            <button onClick={props.clear} type='button' className='clear-button'>
+            <button onClick={props.clear} type='button' className= "clear-button">
               <Icon path={mdiContentSaveCheckOutline} size={1} />
               <span className='clear'>Clear</span>
             </button>
