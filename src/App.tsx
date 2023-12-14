@@ -46,6 +46,11 @@ function App() {
     setBasicInfo(defaultData.BasicInfo);
   }
 
+  //TODO: set up defult education list.
+  function loadDefaultEducationList(){
+
+  }
+
   function clearBasicInfo(){
     setBasicInfo({
       fullName: "",
@@ -111,8 +116,6 @@ function App() {
     setEducationList((educationList) => ([
       ...educationList.filter((education:education) => education.id !== id),
     ]));
-
-    console.log(educationList);
   }
 
   function findEducation(id: number){
