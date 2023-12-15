@@ -7,6 +7,8 @@ h1, h2, h3, h4, h5, h6{
   display: flex;
   align-items: start;
   justify-content: start;
+
+  padding: 3rem;
 }
 
 .basic-info-output{
@@ -39,6 +41,7 @@ h1, h2, h3, h4, h5, h6{
   display: flex;
   justify-content: space-between;
   align-items: center;
+
 }
 
 .education-right{

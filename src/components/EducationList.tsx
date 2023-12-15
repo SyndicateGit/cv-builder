@@ -30,32 +30,34 @@ const RenderEducationList: React.FC<{list:education[], editEducationListItem: (e
         list.map((education) => {
             return (
               <>
-                <div className='eduacation-item'>
-                <div className='education-details'>
-                <p className='degree'>
-                  {education.degree}
-                </p>
-                <p className='school'>
-                  {education.school}
-                </p>
-                <p className='city-province'>{education.city}, {education.province}</p>
-                <p className='dates'>
-                  {education.startDate} - {education.endDate}
-                </p>
-                </div>
-
-                <button 
-                type='button'
-                onClick={editEducationListItem}
-                id={'' + education.id}
-                >
-                  <Icon 
-                  className='disable-pointer-event'
-                  path={mdiPlaylistEdit}
-                  size={1}/>
-                  <span 
-                  className='disable-pointer-event'>Edit</span>
-                </button>
+                <div className='education-item'>
+                  <div className='education-item-left'>
+                    <div className='education-details'>
+                    <p className='degree'>
+                      {education.degree}
+                    </p>
+                    <p className='school'>
+                      {education.school}
+                    </p>
+                    <p className='city-province'>{education.city}, {education.province}</p>
+                    <p className='dates'>
+                      {education.startDate} - {education.endDate}
+                    </p>
+                    </div>
+                  </div>
+                  
+                  <button 
+                  type='button'
+                  onClick={editEducationListItem}
+                  id={'' + education.id}
+                  >
+                    <Icon 
+                    className='disable-pointer-event'
+                    path={mdiPlaylistEdit}
+                    size={1}/>
+                    <span 
+                    className='disable-pointer-event'>Edit</span>
+                  </button>
                 </div>
                 
               </>

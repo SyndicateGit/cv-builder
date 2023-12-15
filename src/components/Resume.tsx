@@ -92,6 +92,7 @@ export default function Resume(props:props){ //TODO: Define props type
         </div>
         <div className='education-output'>
           <h3>Education</h3>
+          <hr/>
           <div className='education-list'>
           <EducationList list={list}
           />
