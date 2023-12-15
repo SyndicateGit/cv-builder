@@ -55,8 +55,7 @@ const EducationList: React.FC<{list:education[]}> = ({list}) => {
                 </div>
                 <div className='education-right'>
                   <div className='education-top-right'>
-                    <p>{education.city}</p>
-                    <p>{education.province}</p>
+                    <p>{education.city + " " + education.province}</p>
                   </div>
                   <div className='education-bottom-right'>            
                   <i>{convertDate(education.startDate) + " - " +convertDate(education.endDate)}

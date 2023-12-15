@@ -17,7 +17,7 @@ const defaultData = {
     endDate: "2025-04-30",
   },
   EducationInfo2:{
-    degree: "B.Sc. for Molecular Genetics and Microbiology",
+    degree: "B.Sc. Molecular Genetics and Microbiology",
     school: "University of Toronto",
     city: "Toronto",
     province: "Ontario",
