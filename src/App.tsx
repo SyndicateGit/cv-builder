@@ -48,7 +48,12 @@ function App() {
 
   //TODO: set up defult education list.
   function loadDefaultEducationList(){
+    setEducationList([defaultData.EducationInfo1, defaultData.EducationInfo2]);
+  }
 
+  function loadDefaultInfo(){
+    loadDefaultBasicInfo();
+    loadDefaultEducationList();
   }
 
   function clearBasicInfo(){
@@ -59,6 +64,15 @@ function App() {
       linkedInLink: "",
       githubLink: ""
     })
+  }
+
+  function clearEducationList(){
+    setEducationList([]);
+  }
+
+  function clearDefaultInfo(){
+    clearBasicInfo();
+    clearEducationList();
   }
 
   function addEducationList(){
@@ -138,8 +152,8 @@ function App() {
     <div className="App">
       <div className='cv-inputs'>
         <TemplateLoader 
-        onLoadDefault={loadDefaultBasicInfo} 
-        onClear={clearBasicInfo}
+        onLoadDefault={loadDefaultInfo} 
+        onClear={clearDefaultInfo}
         />
         <BasicInfo 
           onChange={handleBasicInfoChange} 

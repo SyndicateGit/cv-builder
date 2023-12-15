@@ -9,20 +9,20 @@ const defaultData = {
     githubLink: "github.com/SyndicateGit"
   },
   EducationInfo1:{
-    degree: "BCS for Computer Science",
+    degree: "BCS Computer Science",
     school: "University of Windsor",
     city: "Windsor",
     province: "Ontario",
-    startDate: "05/01/2023",
-    endDate: "04/30/2025",
+    startDate: "2023-05-01",
+    endDate: "2025-04-30",
   },
   EducationInfo2:{
-    degree: "BSc for Molecular Genetics and Microbiology",
+    degree: "B.Sc. for Molecular Genetics and Microbiology",
     school: "University of Toronto",
     city: "Toronto",
     province: "Ontario",
-    startDate: "09/01/2016",
-    endDate: "04/30/2020",
+    startDate: "2016-09-01",
+    endDate: "2020-04-30",
   },
 }
 
