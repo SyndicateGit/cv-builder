@@ -144,11 +144,19 @@ function App() {
     icon: mdiArrowDownDropCircleOutline
   }
 
-  const [educationDisplayDropDown, setDisplayDropDown] = React.useState(displayEducationState);
+  const[experienceDisplayDropDown, setExperienceDisplayDropDown] = React.useState(displayExperienceState);
 
+  const [educationDisplayDropDown, setEducationDisplayDropDown] = React.useState(displayEducationState);
+
+  function handleExperienceDisplayDropDown(){
+    setExperienceDisplayDropDown({
+      display: experienceDisplayDropDown.display === 'hide'? 'show':'hide',
+      icon: experienceDisplayDropDown.icon === mdiArrowDownDropCircleOutline ? mdiArrowUpDropCircleOutline: mdiArrowDownDropCircleOutline,
+    });
+  }
 
   function handleEducationDisplayDropDown(){
-    setDisplayDropDown({
+    setEducationDisplayDropDown({
       display: educationDisplayDropDown.display === 'hide'? 'show':'hide',
       icon: educationDisplayDropDown.icon === mdiArrowDownDropCircleOutline ? mdiArrowUpDropCircleOutline: mdiArrowDownDropCircleOutline,
     });
@@ -192,7 +200,9 @@ function App() {
           />
         </div>
         <div className='experience-container'>
-          <Experience/>
+          <Experience 
+          handleDisplayDropdown = {handleExperienceDisplayDropDown}
+          displayDropDown = {experienceDisplayDropDown}/>
         </div>
       </div>
 

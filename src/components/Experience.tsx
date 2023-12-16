@@ -13,10 +13,13 @@ export default function Experience(props:any){
         <div className='drop-down'>
           <h2>Experience</h2>
           <button className="drop-down-button" 
-          type="button">
+          type="button"
+          onClick={props.handleDisplayDropdown}>
+            <Icon path={props.displayDropDown.icon}
+            size={1}
+            />
           </button>
-          <div>
-            
+          <div className={props.displayDropDown.display + " input-field"}>
             <button  type='button'>
               <Icon path={mdiContentSaveCheckOutline} size={1} />
               <span className='Add'>Add</span>
