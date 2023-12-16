@@ -12,6 +12,15 @@ body{
   align-items: start;
 }
 
+
+
+.cv-inputs{
+  padding: 1rem;
+  min-width: 375px;
+  max-width: 3750px;
+  height: fit-content;
+}
+
 @media (max-width: 1000px){
   .App{
     display: flex;
@@ -20,6 +29,7 @@ body{
     align-items: start;
   }
   .cv-inputs{
+    min-width: 300px;
     max-width: 300px;
   }
   h1{
@@ -37,13 +47,6 @@ body{
   button{
     font-size: 0.75rem;
   }
-}
-
-.cv-inputs{
-  padding: 1rem;
-  min-width: 400px;
-  max-width: 400px;
-  height: fit-content;
 }
 
 .cv-outputs{

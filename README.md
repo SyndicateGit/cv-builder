@@ -10,6 +10,6 @@ Information for load Example is my own resume under Jake's Resume Template.
 
 Deployment: 
 https://github.com/gitname/react-gh-pages 
-npm run deploy
+$ npm run deploy -- -m "Deploy React app to GitHub Pages"
 
 Live webpage: https://syndicategit.github.io/cv-builder/ 
