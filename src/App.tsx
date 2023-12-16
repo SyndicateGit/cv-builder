@@ -40,7 +40,7 @@ function App() {
 
   // Manages Educations list of submitted education form
   // Use this list to update resume section upon submission 
-  const[educationList, setEducationList] = React.useState([]);
+  const[educationList, setEducationList] = React.useState([defaultData.EducationInfo1, defaultData.EducationInfo2]);
 
   function loadDefaultBasicInfo(){
     setBasicInfo(defaultData.BasicInfo);
@@ -118,7 +118,7 @@ function App() {
    // Opens Education Form if hidden
    if(displayDropDown.display === 'hide'){
     handleDisplayDropDown();
-  }
+    }
     // Load current item to be edited onto education
     const item = findEducation(id);
 
