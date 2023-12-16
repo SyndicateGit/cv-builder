@@ -2,8 +2,6 @@ import * as React from 'react';
 import InputGroup from './InputGroup';
 import '../styles/Education.css';
 import Icon from '@mdi/react';
-import { mdiArrowDownDropCircleOutline } from '@mdi/js';
-import { mdiArrowUpDropCircleOutline } from '@mdi/js';
 import { mdiContentSaveCheckOutline } from '@mdi/js';
 
 

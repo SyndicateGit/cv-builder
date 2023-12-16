@@ -2,7 +2,6 @@ import * as React from 'react';
 import '../styles/EducationList.css';
 import Icon from '@mdi/react';
 import { mdiPlaylistEdit } from '@mdi/js';
-import { editableInputTypes } from '@testing-library/user-event/dist/utils';
 
 type education = {
   degree: string,

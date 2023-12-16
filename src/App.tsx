@@ -7,6 +7,7 @@ import defaultData from './default-data';
 import Resume from './components/Resume';
 import Education from './components/Education';
 import EducationList from './components/EducationList';
+import Experience from './components/Experience';
 import Icon from '@mdi/react';
 import { mdiArrowDownDropCircleOutline } from '@mdi/js';
 import { mdiArrowUpDropCircleOutline } from '@mdi/js';
@@ -178,6 +179,9 @@ function App() {
             educationList={educationList}
             editEducationListItem={editEducationListItem}
           />
+        </div>
+        <div className='experience-container'>
+          <Experience/>
         </div>
       </div>
 
