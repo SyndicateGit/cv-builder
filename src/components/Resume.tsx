@@ -33,7 +33,6 @@ function convertDate(date:string){
 }
 
 const EducationList: React.FC<{list:education[]}> = ({list}) => {
-  // TODO: Figure out why <EducationList> wants list function method implementation. Find a workaround.
   if(!list){
     return <div></div>
   }

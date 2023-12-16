@@ -36,14 +36,15 @@ h1, h2, h3, h4, h5, h6, p{
 }
 
 .education-list{
-
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .resume-education-item{
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 
 .education-right{

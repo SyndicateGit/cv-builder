@@ -46,7 +46,6 @@ function App() {
     setBasicInfo(defaultData.BasicInfo);
   }
 
-  //TODO: set up defult education list.
   function loadDefaultEducationList(){
     setEducationList([defaultData.EducationInfo1, defaultData.EducationInfo2]);
   }
@@ -109,9 +108,6 @@ function App() {
   }
 
   function editEducationListItem(e: any){
-    // Fetch id of edit button clicked
-    // TODO: Fix bug, bug happens here. Sometimes button has target other time doesn't. Why?
-    // Bug happens at click, sometimes not button but the span/p inside button
     const button = e.target;
     const id = parseInt(button.id)
 

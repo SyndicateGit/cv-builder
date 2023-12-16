@@ -26,10 +26,9 @@ body{
   }
 }
 
-
-
 .cv-inputs{
   padding: 1rem;
+  min-width: 400px;
   max-width: 400px;
 }
 
