@@ -19,6 +19,21 @@ body{
     justify-content: center;
     align-items: start;
   }
+  h1{
+    font-size: 1.5rem;
+  }
+  h2{
+    font-size: 1.125rem;
+  }
+  h3{
+    font-size: 1rem;
+  }
+  p, span, input, i{
+    font-size: 0.75rem;
+  }
+  button{
+    font-size: 0.75rem;
+  }
 }
 
 .cv-inputs{
