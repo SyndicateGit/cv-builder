@@ -2,11 +2,6 @@
   
 }
 
-html, body, #root, .App, .App>div {
-  height: 100%;
-  width: 100%;
-}
-
 body{
   overflow: scroll;
 }
@@ -30,6 +25,7 @@ body{
   padding: 1rem;
   min-width: 400px;
   max-width: 400px;
+  height: fit-content;
 }
 
 .cv-outputs{

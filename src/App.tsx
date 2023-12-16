@@ -113,8 +113,8 @@ function App() {
     const id = parseInt(button.id)
 
    // Opens Education Form if hidden
-   if(displayDropDown.display === 'hide'){
-    handleDisplayDropDown();
+   if(educationDisplayDropDown.display === 'hide'){
+    handleEducationDisplayDropDown();
     }
     // Load current item to be edited onto education
     const item = findEducation(id);
@@ -132,18 +132,29 @@ function App() {
   function findEducation(id: number){
     return educationList.find((education) => education.id === id);
   }
+
   const displayEducationState = {
     display: 'hide',
     icon: mdiArrowDownDropCircleOutline
   }
-  const [displayDropDown, setDisplayDropDown] = React.useState(displayEducationState);
 
-  function handleDisplayDropDown(){
+  //TODO: Implement experience drop down button
+  const displayExperienceState = {
+    display: 'hide',
+    icon: mdiArrowDownDropCircleOutline
+  }
+
+  const [educationDisplayDropDown, setDisplayDropDown] = React.useState(displayEducationState);
+
+
+  function handleEducationDisplayDropDown(){
     setDisplayDropDown({
-      display: displayDropDown.display === 'hide'? 'show':'hide',
-      icon: displayDropDown.icon === mdiArrowDownDropCircleOutline ? mdiArrowUpDropCircleOutline: mdiArrowDownDropCircleOutline,
+      display: educationDisplayDropDown.display === 'hide'? 'show':'hide',
+      icon: educationDisplayDropDown.icon === mdiArrowDownDropCircleOutline ? mdiArrowUpDropCircleOutline: mdiArrowDownDropCircleOutline,
     });
   }
+
+
 
   return (
     <div className="App">
@@ -171,8 +182,8 @@ function App() {
             endDate={education.endDate}
             clear = {clearEducationInfo}
             addEducationList = {addEducationList}
-            handleDisplayDropdown={handleDisplayDropDown}
-            displayDropDown={displayDropDown}
+            handleDisplayDropdown={handleEducationDisplayDropDown}
+            displayDropDown={educationDisplayDropDown}
             
           />
           <EducationList 
