@@ -19,6 +19,9 @@ body{
     justify-content: center;
     align-items: start;
   }
+  .cv-inputs{
+    max-width: 300px;
+  }
   h1{
     font-size: 1.5rem;
   }
