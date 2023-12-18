@@ -22,7 +22,6 @@ type education = {
   id: number
 }
 
-type educationList = education[];
 
 function App() {
   // Manages General Information Section.
@@ -42,6 +41,45 @@ function App() {
   // Manages Educations list of submitted education form
   // Use this list to update resume section upon submission 
   const[educationList, setEducationList] = React.useState([defaultData.EducationInfo1, defaultData.EducationInfo2]);
+
+  const[experience, setExperience] = React.useState({
+    jobTitle: "",
+    company: "",
+    city: "",
+    province: "",
+    startDate: "",
+    endDate: "",
+    description: "",
+    id: 0,
+  })
+
+  const[experienceList, setExperienceList] = React.useState([]);
+
+  function clearExperienceList(){
+    setExperienceList([]);
+  }
+
+  function addExperienceList(){
+    setExperienceList((experienceList) => ([
+      {...experience, id: experience.id + 1},
+      ...experienceList
+    ]));
+    // Update id key for each education in education list to be unique.
+    setEducation((experience) => ({ ...experience, id: experience.id + 1}));
+  }
+
+  function clearExperience(){
+    setExperience({
+      jobTitle: "",
+      company: "",
+      city: "",
+      province: "",
+      startDate: "",
+      endDate: "",
+      description: "",
+      id: 0,
+    })
+  }
 
   function loadDefaultBasicInfo(){
     setBasicInfo(defaultData.BasicInfo);
@@ -73,6 +111,7 @@ function App() {
   function clearDefaultInfo(){
     clearBasicInfo();
     clearEducationList();
+    clearExperience();
   }
 
   function addEducationList(){
@@ -106,6 +145,11 @@ function App() {
   function handleEducationInfoChange(e:any){ // TODO: Fix event type
     const { key } = e.target.dataset;
     setEducation({ ...education, [key]: e.target.value });
+  }
+
+  function handleExperienceInfoChange(e:any){ // TODO: Fix event type
+    const { key } = e.target.dataset;
+    setExperience({ ...experience, [key]: e.target.value });
   }
 
   function editEducationListItem(e: any){
@@ -201,8 +245,22 @@ function App() {
         </div>
         <div className='experience-container'>
           <Experience 
-          handleDisplayDropdown = {handleExperienceDisplayDropDown}
-          displayDropDown = {experienceDisplayDropDown}/>
+            handleDisplayDropdown={handleExperienceDisplayDropDown}
+            displayDropDown={experienceDisplayDropDown} 
+            onChange={handleExperienceInfoChange} 
+            jobTitle={experience.jobTitle} 
+            company={experience.company} 
+            city={experience.city} 
+            province={experience.province} 
+            startDate={experience.startDate} 
+            endDate={experience.endDate}
+            description={experience.description}
+            clear={function (): void {
+              throw new Error('Function not implemented.');
+            } } 
+            addExperienceList={function (): void {
+              throw new Error('Function not implemented.');
+            } }/>
         </div>
       </div>
 
