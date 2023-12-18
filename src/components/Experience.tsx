@@ -104,12 +104,12 @@ export default function Experience(props:props){
             </div>
             <button  
               type='button'
-              onChange={props.addExperienceList}>
+              onClick={props.addExperienceList}>
               <Icon path={mdiContentSaveCheckOutline} size={1} />
               <span className='Add'>Add</span>
             </button>
             <button  type='button' className= "clear-button"
-              onChange={props.clear}>
+              onClick={props.clear}>
               <Icon path={mdiContentSaveCheckOutline} size={1} />
               <span className='clear'>Clear</span>
             </button>

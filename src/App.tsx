@@ -150,7 +150,6 @@ function App() {
   function handleExperienceInfoChange(e:any){ // TODO: Fix event type
     const { key } = e.target.dataset;
     setExperience({ ...experience, [key]: e.target.value });
-    console.log(experience);
   }
 
   function editEducationListItem(e: any){
