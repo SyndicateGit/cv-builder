@@ -13,6 +13,7 @@ body{
 }
 
 .cv-inputs{
+  flex: 1;
   padding: 1rem;
   min-width: 375px;
   max-width: 3750px;
@@ -27,30 +28,13 @@ body{
     justify-content: center;
     align-items: start;
   }
-  .cv-inputs{
-    min-width: 300px;
-    max-width: 300px;
-  }
-  h1{
-    font-size: 1.5rem;
-  }
-  h2{
-    font-size: 1.125rem;
-  }
-  h3{
-    font-size: 1rem;
-  }
-  p, span, input, i{
-    font-size: 0.75rem;
-  }
-  button{
-    font-size: 0.75rem;
-  }
-  
 }
 
+p.contact{
+  font-size: 0.9rem;
+}
 .cv-outputs{
-
+  flex: 1;
 }
 
 /*Prevents e.target from returning anything but the button*/
