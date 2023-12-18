@@ -65,7 +65,8 @@ function App() {
       ...experienceList
     ]));
     // Update id key for each education in education list to be unique.
-    setEducation((experience) => ({ ...experience, id: experience.id + 1}));
+    setExperience((experience) => ({ ...experience, id: experience.id + 1}));
+    console.log(experienceList);
   }
 
   function clearExperience(){
@@ -111,7 +112,6 @@ function App() {
   function clearDefaultInfo(){
     clearBasicInfo();
     clearEducationList();
-    clearExperience();
   }
 
   function addEducationList(){
@@ -150,6 +150,7 @@ function App() {
   function handleExperienceInfoChange(e:any){ // TODO: Fix event type
     const { key } = e.target.dataset;
     setExperience({ ...experience, [key]: e.target.value });
+    console.log(experience);
   }
 
   function editEducationListItem(e: any){
@@ -182,7 +183,6 @@ function App() {
     icon: mdiArrowDownDropCircleOutline
   }
 
-  //TODO: Implement experience drop down button
   const displayExperienceState = {
     display: 'hide',
     icon: mdiArrowDownDropCircleOutline
@@ -246,21 +246,21 @@ function App() {
         <div className='experience-container'>
           <Experience 
             handleDisplayDropdown={handleExperienceDisplayDropDown}
-            displayDropDown={experienceDisplayDropDown} 
-            onChange={handleExperienceInfoChange} 
-            jobTitle={experience.jobTitle} 
-            company={experience.company} 
-            city={experience.city} 
-            province={experience.province} 
-            startDate={experience.startDate} 
+            displayDropDown={experienceDisplayDropDown}
+            onChange={handleExperienceInfoChange}
+            jobTitle={experience.jobTitle}
+            company={experience.company}
+            city={experience.city}
+            province={experience.province}
+            startDate={experience.startDate}
             endDate={experience.endDate}
             description={experience.description}
-            clear={function (): void {
-              throw new Error('Function not implemented.');
-            } } 
-            addExperienceList={function (): void {
-              throw new Error('Function not implemented.');
-            } }/>
+            clear={clearExperience}
+            addExperienceList={addExperienceList} 
+            // Needed setExperience and currentExperience for textarea html to work in Experience component
+            setExperience={setExperience}
+            currentExperience = {experience}            
+            />
         </div>
       </div>
 

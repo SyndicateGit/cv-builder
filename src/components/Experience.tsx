@@ -17,6 +17,8 @@ type props = {
   startDate: string;
   endDate: string;
   description: string;
+  setExperience: any; //TODO: Fix type
+  currentExperience: any; //TODO: Fix type
   clear: () => void;
   addExperienceList: () => void;
   handleDisplayDropdown: () => void;
@@ -98,13 +100,16 @@ export default function Experience(props:props){
               <label htmlFor="description">
                 <span className='label-text'>Description</span>
               </label>
-              <textarea name="description" id="description" placeholder='Main Tasks. Seperate by periods please.' value={props.description}></textarea>
+              <textarea onChange={e => props.setExperience({ ...props.currentExperience, ["description"]: e.target.value })} name="description" id="description" placeholder='Main Tasks. Seperate by periods please.' value={props.description}></textarea>
             </div>
-            <button  type='button'>
+            <button  
+              type='button'
+              onChange={props.addExperienceList}>
               <Icon path={mdiContentSaveCheckOutline} size={1} />
               <span className='Add'>Add</span>
             </button>
-            <button  type='button' className= "clear-button">
+            <button  type='button' className= "clear-button"
+              onChange={props.clear}>
               <Icon path={mdiContentSaveCheckOutline} size={1} />
               <span className='clear'>Clear</span>
             </button>
