@@ -16,9 +16,8 @@ body{
   flex: 1;
   padding: 1rem;
   min-width: 375px;
-  max-width: 3750px;
+  max-width: 375px;
   height: fit-content;
-
 }
 
 @media (max-width: 1000px){

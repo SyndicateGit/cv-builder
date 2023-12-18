@@ -8,7 +8,7 @@ h1, h2, h3, h4, h5, h6, p{
 .cv-outputs{
   display: flex;
   align-items: start;
-  justify-content: start;
+  justify-content: center;
 }
 
 .basic-info-output{
