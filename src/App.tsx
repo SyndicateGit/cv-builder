@@ -8,6 +8,7 @@ import Resume from './components/Resume';
 import Education from './components/Education';
 import EducationList from './components/EducationList';
 import Experience from './components/Experience';
+import ExperienceList from './components/ExperienceList';
 import Icon from '@mdi/react';
 import { mdiArrowDownDropCircleOutline } from '@mdi/js';
 import { mdiArrowUpDropCircleOutline } from '@mdi/js';
@@ -22,6 +23,16 @@ type education = {
   id: number
 }
 
+type experience = {
+  jobTitle: string;
+  company: string;
+  city: string;
+  province: string;
+  startDate: string;
+  endDate: string;
+  description: string;
+  id: number;
+}
 
 function App() {
   // Manages General Information Section.
@@ -177,6 +188,7 @@ function App() {
     return educationList.find((education) => education.id === id);
   }
 
+
   const displayEducationState = {
     display: 'hide',
     icon: mdiArrowDownDropCircleOutline
@@ -185,6 +197,31 @@ function App() {
   const displayExperienceState = {
     display: 'hide',
     icon: mdiArrowDownDropCircleOutline
+  }
+
+  function findExperience(id: number){
+    return experienceList.find((experience) => experience.id === id);
+  }
+  
+function editExperienceListItem(e: any){
+    const button = e.target;
+    const id = parseInt(button.id)
+
+   // Opens Education Form if hidden
+   if(experienceDisplayDropDown.display === 'hide'){
+    handleExperienceDisplayDropDown();
+    }
+    // Load current item to be edited onto education
+    const item = findExperience(id);
+
+    // Set Education form info to item being edited
+    setExperience(item);
+
+    // Deletes item from educationList
+    // User would either add it back to save or clear to delete
+    setExperienceList((experienceList) => ([
+      ...experienceList.filter((experience:experience) => experience.id !== id),
+    ]));
   }
 
   const[experienceDisplayDropDown, setExperienceDisplayDropDown] = React.useState(displayExperienceState);
@@ -260,6 +297,7 @@ function App() {
             setExperience={setExperience}
             currentExperience = {experience}            
             />
+            <ExperienceList experienceList={experienceList} editExperienceListItem={editExperienceListItem }/>
         </div>
       </div>
 
