@@ -34,7 +34,7 @@ const RenderExperienceList: React.FC<{list:experience[], editExperienceListItem:
                   <div className='experience-item-left'>
                     <div className='experience-details'>
                     <p className=''>
-                      {}
+                      {experience.id}
                     </p>
                     <p className=''>
                       {}

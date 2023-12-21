@@ -124,7 +124,8 @@ function App() {
     clearBasicInfo();
     clearEducationList();
   }
-
+  
+  //TODO: Bug found, id is + 1 each time so sometimes id collides if editing lower value id.
   function addEducationList(){
     setEducationList((educationList) => ([
       {...education, id: education.id + 1},
@@ -293,7 +294,6 @@ function editExperienceListItem(e: any){
             description={experience.description}
             clear={clearExperience}
             addExperienceList={addExperienceList} 
-            // Needed setExperience and currentExperience for textarea html to work in Experience component
             setExperience={setExperience}
             currentExperience = {experience}            
             />
