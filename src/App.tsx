@@ -78,7 +78,7 @@ function App() {
       startDate: "",
       endDate: "",
       description: "",
-      id: 0,
+      id: experience.id,
     })
   }
 

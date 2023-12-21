@@ -28,7 +28,13 @@ type props = {
   }; 
 }
 
+
 export default function Experience(props:props){
+  function addExperienceList(){
+    props.addExperienceList();
+    props.handleDisplayDropdown();
+    props.clear();
+  }
   return (
     <>
       <form action="" className='experience-info'>
@@ -104,7 +110,7 @@ export default function Experience(props:props){
             </div>
             <button  
               type='button'
-              onClick={props.addExperienceList}>
+              onClick={addExperienceList}>
               <Icon path={mdiContentSaveCheckOutline} size={1} />
               <span className='Add'>Add</span>
             </button>
