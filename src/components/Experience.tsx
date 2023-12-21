@@ -35,6 +35,23 @@ export default function Experience(props:props){
     props.handleDisplayDropdown();
     props.clear();
   }
+
+  
+  let disabledButton = '';
+
+  function updateStateAndButton(e: any){
+    props.onChange(e)
+    setDisabledButton();
+  }
+
+  function setDisabledButton(){
+    if(props.jobTitle === '' || props.company === '' || props.endDate === '' || props.province === '' || props.city === '' || props.startDate === ''){
+      disabledButton = ' disabled';
+    }
+  }
+
+  setDisabledButton();
+
   return (
     <>
       <form action="" className='experience-info'>
@@ -94,7 +111,7 @@ export default function Experience(props:props){
             dataKey={'startDate'}
             />
             <InputGroup 
-            onChange={props.onChange} 
+            onChange={updateStateAndButton} 
             type={'date'} 
             id={'endDate'} 
             labelText={'End Date'} 
@@ -110,9 +127,10 @@ export default function Experience(props:props){
             </div>
             <button  
               type='button'
-              onClick={addExperienceList}>
+              onClick={addExperienceList}
+              className={'submit-button' + disabledButton}>
               <Icon path={mdiContentSaveCheckOutline} size={1} />
-              <span className='Add'>Add</span>
+              <span className={'Add'}>Add</span>
             </button>
             <button  type='button' className= "clear-button"
               onClick={props.clear}>
