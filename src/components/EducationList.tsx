@@ -10,7 +10,7 @@ type education = {
   province: string,
   startDate: string,
   endDate: string,
-  id: number,
+  id: string,
 }
 
 type props = {
@@ -48,7 +48,7 @@ const RenderEducationList: React.FC<{list:education[], editEducationListItem: (e
                   <button 
                   type='button'
                   onClick={editEducationListItem}
-                  id={'' + education.id}
+                  id={education.id}
                   >
                     <Icon 
                     className='disable-pointer-event'

@@ -16,7 +16,7 @@ type education = {
   province: string,
   startDate: string,
   endDate: string,
-  id: number
+  id: string
 }
 
 

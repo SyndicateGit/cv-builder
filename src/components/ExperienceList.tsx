@@ -11,7 +11,7 @@ type experience = {
   startDate: string;
   endDate: string;
   description: string;
-  id: number;
+  id: string;
 }
 
 type props = {
@@ -49,7 +49,7 @@ const RenderExperienceList: React.FC<{list:experience[], editExperienceListItem:
                   <button 
                   type='button'
                   onClick={editExperienceListItem}
-                  id={'' + experience.id}
+                  id={experience.id}
                   >
                     <Icon 
                     className='disable-pointer-event'

@@ -20,7 +20,7 @@ type education = {
   province: string,
   startDate: string,
   endDate: string,
-  id: number
+  id: string
 }
 
 type experience = {
@@ -31,7 +31,7 @@ type experience = {
   startDate: string;
   endDate: string;
   description: string;
-  id: number;
+  id: string;
 }
 
 function App() {
@@ -46,7 +46,7 @@ function App() {
    province: '',
    startDate: '',
    endDate: '',
-   id: 0,
+   id: uuid(),
   });
 
   // Manages Educations list of submitted education form
@@ -61,7 +61,7 @@ function App() {
     startDate: "",
     endDate: "",
     description: "",
-    id: 0,
+    id: uuid(),
   })
 
   const[experienceList, setExperienceList] = React.useState([]);
@@ -72,16 +72,16 @@ function App() {
 
   function addExperienceList(){
     setExperienceList((experienceList) => ([
-      {...experience, id: experience.id + 1},
+      {...experience},
       ...experienceList
     ]));
     // Update id key for each education in education list to be unique.
-    setExperience((experience) => ({ ...experience, id: experience.id + 1}));
+    setExperience((experience) => ({ ...experience, id: uuid()}));
     console.log(experienceList);
   }
 
   function clearExperience(){
-    setExperience({
+    setExperience((experience) => ({
       jobTitle: "",
       company: "",
       city: "",
@@ -90,7 +90,7 @@ function App() {
       endDate: "",
       description: "",
       id: experience.id,
-    })
+    }))
   }
 
   function loadDefaultBasicInfo(){
@@ -128,11 +128,11 @@ function App() {
   //TODO: Bug found, id is + 1 each time so sometimes id collides if editing lower value id.
   function addEducationList(){
     setEducationList((educationList) => ([
-      {...education, id: education.id + 1},
+      {...education},
       ...educationList
     ]));
-    // Update id key for each education in education list to be unique.
-    setEducation((education) => ({ ...education, id: education.id + 1}));
+    // Update id key for next education
+    setEducation((education) => ({ ...education, id: uuid()}));
   }
 
   function clearEducationInfo(){
@@ -166,8 +166,9 @@ function App() {
 
   function editEducationListItem(e: any){
     const button = e.target;
-    const id = parseInt(button.id)
+    const id = button.id
 
+    console.log(id);
    // Opens Education Form if hidden
    if(educationDisplayDropDown.display === 'hide'){
     handleEducationDisplayDropDown();
@@ -185,7 +186,7 @@ function App() {
     ]));
   }
 
-  function findEducation(id: number){
+  function findEducation(id: string){
     return educationList.find((education) => education.id === id);
   }
 
@@ -200,14 +201,15 @@ function App() {
     icon: mdiArrowDownDropCircleOutline
   }
 
-  function findExperience(id: number){
+  function findExperience(id: string){
     return experienceList.find((experience) => experience.id === id);
   }
   
 function editExperienceListItem(e: any){
     const button = e.target;
-    const id = parseInt(button.id)
+    const id = button.id
 
+    console.log(id);
    // Opens Education Form if hidden
    if(experienceDisplayDropDown.display === 'hide'){
     handleExperienceDisplayDropDown();

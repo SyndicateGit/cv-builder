@@ -15,7 +15,7 @@ const defaultData = {
     province: "Ontario",
     startDate: "2023-05-01",
     endDate: "2025-04-30",
-    id: -1,
+    id: "0",
   },
   EducationInfo2:{
     degree: "B.Sc. Molecular Genetics and Microbiology",
@@ -24,7 +24,7 @@ const defaultData = {
     province: "Ontario",
     startDate: "2016-09-01",
     endDate: "2020-04-30",
-    id: -2,
+    id: "1",
   },
 }
 
