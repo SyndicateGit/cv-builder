@@ -19,6 +19,16 @@ type education = {
   id: string
 }
 
+type experience = {
+  jobTitle: string;
+  company: string;
+  city: string;
+  province: string;
+  startDate: string;
+  endDate: string;
+  description: string;
+  id: string;
+}
 
 type props = {
   basicInfo: basicInfo
@@ -71,6 +81,27 @@ const EducationList: React.FC<{list:education[]}> = ({list}) => {
   );
 }
 
+//TODO: Finish Experience List rendering on Resume
+//TODO: Convert sentences to bullet points function
+const ExperienceList: React.FC<{list:experience[]}> = ({list}) => {
+  if(!list){
+    return <div></div>
+  }
+  return(
+    <>
+      {
+        list.map((experience) => {
+            return (
+              <>
+
+              </>
+            )
+        })
+      }
+    </>
+  );
+}
+
 export default function Resume(props:props){ //TODO: Define props type
   const list = props.educationList;
 
@@ -96,6 +127,9 @@ export default function Resume(props:props){ //TODO: Define props type
           <EducationList list={list}
           />
           </div>
+        </div>
+        <div className='experience-output'>
+
         </div>
       </div>
     </>
