@@ -53,7 +53,11 @@ const EducationList: React.FC<{list:education[]}> = ({list}) => {
         list.map((education) => {
             return (
               <>
-              <div className="resume-item">
+              <div className='education-output output'>
+          <h3>Education</h3>
+          <hr/>
+          <div className='education-list'>
+          <div className="resume-item">
                 <div className='resume-item-left'>
                   <div className='resume-item-left'>
                   <p className='bold'>{education.school}</p>
@@ -73,6 +77,10 @@ const EducationList: React.FC<{list:education[]}> = ({list}) => {
                   </div>
                 </div>
               </div>
+          
+          </div>
+        </div>
+              
             
             </>
             )
@@ -101,6 +109,11 @@ const ExperienceList: React.FC<{list:experience[]}> = ({list}) => {
           const descriptionListItems = descriptionList.map((sentnce:string)=>{return <li>{sentnce}</li>});
             return (
               <>
+              <div className='experience-output output'>
+              <h3>Experience</h3>
+              <hr/>
+
+              <div className='experience-list'>
               <div className="resume-item">
                 <div className='resume-item-left'>
                   <div className='resume-item-top-left'>
@@ -124,6 +137,9 @@ const ExperienceList: React.FC<{list:experience[]}> = ({list}) => {
               <div className='description'>
                 {descriptionListItems}
               </div>
+              </div>
+            </div>
+              
               </>
             )
         })
@@ -150,21 +166,12 @@ export default function Resume(props:props){ //TODO: Define props type
             <p className='contact'>{props.basicInfo.githubLink}</p>
           </div>
         </div>
-        <div className='education-output output'>
-          <h3>Education</h3>
-          <hr/>
-          <div className='education-list'>
+        
           <EducationList list={list}
           />
-          </div>
-        </div>
-        <div className='experience-output output'>
-          <h3>Experience</h3>
-          <hr/>
-          <div className='experience-list'>
-          <ExperienceList list={expList}/>
-          </div>
-        </div>
+          
+        <ExperienceList list={expList}/>
+        
       </div>
     </>
   )
