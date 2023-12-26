@@ -30,19 +30,19 @@ const RenderExperienceList: React.FC<{list:experience[], editExperienceListItem:
         list.map((experience) => {
             return (
               <>
-                <div className='experience-item'>
-                  <div className='experience-item-left'>
-                    <div className='experience-details'>
-                    <p className=''>
-                      {experience.id}
+                <div className='list-item'>
+                  <div className='list-item-left'>
+                    <div className='list-details'>
+                    <p className='jobTitle'>
+                      {experience.jobTitle}
                     </p>
                     <p className=''>
-                      {}
+                      {experience.company}
                     </p>
-                    <p className=''>{}, {}</p>
                     <p className=''>
-                      {} - {}
+                      {experience.city},{experience.province}
                     </p>
+                    <p className='dates'>{experience.startDate} - {experience.endDate}</p>
                     </div>
                   </div>
                   

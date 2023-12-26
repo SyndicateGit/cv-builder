@@ -29,9 +29,9 @@ const RenderEducationList: React.FC<{list:education[], editEducationListItem: (e
         list.map((education) => {
             return (
               <>
-                <div className='education-item'>
-                  <div className='education-item-left'>
-                    <div className='education-details'>
+                <div className='list-item'>
+                  <div className='list-item-left'>
+                    <div className='list-details'>
                     <p className='degree'>
                       {education.degree}
                     </p>
