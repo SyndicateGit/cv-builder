@@ -3,8 +3,8 @@ import { v4 as uuid } from 'uuid';
 const defaultData = {
   BasicInfo:{
     fullName: "Raymond Zeng",
-    email: "shilei.zeng98@outlook.com",
-    phoneNumber: "(647) 919-1311",
+    email: "username@outlook.com",
+    phoneNumber: "(123) 456-789",
     linkedInLink: "linkedin.com/in/shilei-zeng",
     githubLink: "github.com/SyndicateGit"
   },
@@ -26,6 +26,18 @@ const defaultData = {
     endDate: "2020-04-30",
     id: "1",
   },
+  //TODO: Fill Default Experiences
+  ExperienceInfo1:{
+    jobTitle: "Software Developer",
+    company: "Company X",
+    city: "Toronto",
+    province: "Ontario",
+    startDate: "2023-11-01",
+    endDate: "2023-12-25",
+    description: "Developed CV Builder webapp. Includes general info, education, and experience section.",
+    id: "1",
+  }
+  
 }
 
 export default defaultData;

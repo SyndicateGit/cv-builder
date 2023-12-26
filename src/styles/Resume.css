@@ -55,6 +55,10 @@ h1, h2, h3, h4, h5, h6, p{
   align-items: center;
 }
 
+.resume-item-left{
+  display: flex;
+  flex-direction: column;
+}
 .resume-item-right{
   display: flex;
   flex-direction: column;

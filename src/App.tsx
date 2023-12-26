@@ -64,7 +64,7 @@ function App() {
     id: uuid(),
   })
 
-  const[experienceList, setExperienceList] = React.useState([]);
+  const[experienceList, setExperienceList] = React.useState([defaultData.ExperienceInfo1]);
 
   function clearExperienceList(){
     setExperienceList([]);
@@ -101,9 +101,14 @@ function App() {
     setEducationList([defaultData.EducationInfo1, defaultData.EducationInfo2]);
   }
 
+  function loadDefaultExperienceList(){
+    setExperienceList([defaultData.ExperienceInfo1]);
+  }
+
   function loadDefaultInfo(){
     loadDefaultBasicInfo();
     loadDefaultEducationList();
+    loadDefaultExperienceList();
   }
 
   function clearBasicInfo(){
@@ -123,9 +128,10 @@ function App() {
   function clearDefaultInfo(){
     clearBasicInfo();
     clearEducationList();
+    clearExperienceList();
   }
   
-  //TODO: Bug found, id is + 1 each time so sometimes id collides if editing lower value id.
+ 
   function addEducationList(){
     setEducationList((educationList) => ([
       {...education},

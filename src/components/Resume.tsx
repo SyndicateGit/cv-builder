@@ -58,7 +58,7 @@ const EducationList: React.FC<{list:education[]}> = ({list}) => {
                   <div className='resume-item-left'>
                   <p className='bold'>{education.school}</p>
                   </div>
-                  <div className='resume-item-bottom-right'>
+                  <div className='resume-item-bottom-left'>
                   <i>{education.degree}</i>
                   </div>
                   
@@ -106,7 +106,7 @@ const ExperienceList: React.FC<{list:experience[]}> = ({list}) => {
                   <div className='resume-item-top-left'>
                   <p className='bold'>{experience.jobTitle}</p>
                   </div>
-                  <div className='resume-item-bottom-right'>
+                  <div className='resume-item-bottom-left'>
                   <i>{experience.company}</i>
                   </div>
                   
