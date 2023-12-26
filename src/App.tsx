@@ -307,6 +307,7 @@ function editExperienceListItem(e: any){
         <Resume 
         basicInfo = {basicInfo}
         educationList = {educationList}
+        experienceList={experienceList}
         />
       </div>
     </div>

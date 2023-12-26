@@ -16,7 +16,6 @@ h1, h2, h3, h4, h5, h6, p{
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  margin-bottom: 10px;
 }
 
 .contact-info{
@@ -38,32 +37,35 @@ h1, h2, h3, h4, h5, h6, p{
 }
 
 .education-output{
-
+  
 }
 
-.education-list{
+.output{
+  margin-bottom: 10px;
+}
+.resume-list{
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-.resume-education-item{
+.resume-item{
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.education-right{
+.resume-item-right{
   display: flex;
   flex-direction: column;
 }
 
-.education-top-right{
+.resume-item-top-right{
   display: flex;
   justify-content: end;
 }
 
-.education-bottom-right{
+.resume-item-bottom-right{
   display: flex;
   justify-content: end;
 }
