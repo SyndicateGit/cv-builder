@@ -49,15 +49,16 @@ const EducationList: React.FC<{list:education[]}> = ({list}) => {
   }
   return(
     <>
-      {
-        list.map((education) => {
-            return (
-              <>
-              <div className='education-output output'>
+    <div className='education-output output'>
           <h3>Education</h3>
           <hr/>
           <div className='education-list'>
-          <div className="resume-item">
+          {
+        list.map((education) => {
+            return (
+              <>
+              
+              <div className="resume-item">
                 <div className='resume-item-left'>
                   <div className='resume-item-left'>
                   <p className='bold'>{education.school}</p>
@@ -77,15 +78,15 @@ const EducationList: React.FC<{list:education[]}> = ({list}) => {
                   </div>
                 </div>
               </div>
-          
-          </div>
-        </div>
-              
             
             </>
             )
         })
       }
+          
+          </div>
+        </div>
+      
     </>
   );
 }
@@ -98,7 +99,10 @@ const ExperienceList: React.FC<{list:experience[]}> = ({list}) => {
   }
   return(
     <>
-      {
+      <div className='experience-output output'>
+        <h3>Experience</h3>
+        <hr/>
+        {
         list.map((experience) => {
           let description = experience.description;
           let descriptionList = description.split('.');
@@ -109,9 +113,7 @@ const ExperienceList: React.FC<{list:experience[]}> = ({list}) => {
           const descriptionListItems = descriptionList.map((sentnce:string)=>{return <li>{sentnce}</li>});
             return (
               <>
-              <div className='experience-output output'>
-              <h3>Experience</h3>
-              <hr/>
+              
 
               <div className='experience-list'>
               <div className="resume-item">
@@ -138,12 +140,14 @@ const ExperienceList: React.FC<{list:experience[]}> = ({list}) => {
                 {descriptionListItems}
               </div>
               </div>
-            </div>
+            
               
               </>
             )
         })
       }
+      </div>
+      
     </>
   );
 }
