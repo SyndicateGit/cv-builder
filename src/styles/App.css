@@ -18,6 +18,8 @@ body{
   min-width: 375px;
   max-width: 375px;
   height: fit-content;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width: 1000px){
@@ -39,6 +41,7 @@ span{
 
 .cv-outputs{
   flex: 1;
+  margin-left: 1rem;
 }
 
 /*Prevents e.target from returning anything but the button*/
@@ -46,3 +49,9 @@ span{
   pointer-events: none;
 }
 
+.cv-input-field{
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+}

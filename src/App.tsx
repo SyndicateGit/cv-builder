@@ -260,6 +260,7 @@ function editExperienceListItem(e: any){
         onLoadDefault={loadDefaultInfo} 
         onClear={clearDefaultInfo}
         />
+        <div className='basic-info-container cv-input-field'>
         <BasicInfo 
           onChange={handleBasicInfoChange} 
           fullName={basicInfo.fullName} 
@@ -268,7 +269,8 @@ function editExperienceListItem(e: any){
           linkedInLink={basicInfo.linkedInLink} 
           githubLink={basicInfo.githubLink} 
         />
-        <div className='education-container'>
+        </div>
+        <div className='education-container cv-input-field'>
           <Education 
             onChange={handleEducationInfoChange} 
             degree={education.degree} 
@@ -288,7 +290,7 @@ function editExperienceListItem(e: any){
             editEducationListItem={editEducationListItem}
           />
         </div>
-        <div className='experience-container'>
+        <div className='experience-container cv-input-field'>
           <Experience 
             handleDisplayDropdown={handleExperienceDisplayDropDown}
             displayDropDown={experienceDisplayDropDown}
