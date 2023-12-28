@@ -30,8 +30,13 @@ body{
 }
 
 p.contact{
-  font-size: 0.9rem;
+  font-size: 0.9em;
 }
+
+span{
+  font-size: 0.95em;
+}
+
 .cv-outputs{
   flex: 1;
 }

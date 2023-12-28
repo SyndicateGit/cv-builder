@@ -108,7 +108,7 @@ const ExperienceList: React.FC<{list:experience[]}> = ({list}) => {
           if(descriptionList[descriptionList.length - 1] === ''){
             descriptionList.pop();
           }
-          const descriptionListItems = descriptionList.map((sentnce:string)=>{return <li>{sentnce}</li>});
+          const descriptionListItems = descriptionList.map((sentnce:string)=>{return <li><span>{sentnce}</span></li>});
             return (
               <>
               <div className='experience-list'>
