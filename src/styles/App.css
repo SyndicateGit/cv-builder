@@ -35,9 +35,15 @@ p.contact{
   font-size: 0.9em;
 }
 
-span{
-  font-size: 0.95em;
+p{
+  font-size: 1em;
 }
+
+span{
+  font-size: 1em;
+}
+
+/*TODO: get bullet points aligned*/
 
 .cv-outputs{
   flex: 1;
