@@ -91,8 +91,6 @@ const EducationList: React.FC<{list:education[]}> = ({list}) => {
   );
 }
 
-//TODO: Finish Experience List rendering on Resume
-//TODO: Convert sentences to bullet points function
 const ExperienceList: React.FC<{list:experience[]}> = ({list}) => {
   if(!list){
     return <div></div>
@@ -113,8 +111,6 @@ const ExperienceList: React.FC<{list:experience[]}> = ({list}) => {
           const descriptionListItems = descriptionList.map((sentnce:string)=>{return <li>{sentnce}</li>});
             return (
               <>
-              
-
               <div className='experience-list'>
               <div className="resume-item">
                 <div className='resume-item-left'>
@@ -136,7 +132,7 @@ const ExperienceList: React.FC<{list:experience[]}> = ({list}) => {
                   </div>
                 </div>
               </div>
-              <div className='description'>
+              <div className='bullet-points'>
                 {descriptionListItems}
               </div>
               </div>
