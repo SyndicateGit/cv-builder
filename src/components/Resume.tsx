@@ -44,8 +44,8 @@ function convertDate(date:string){
 }
 
 const EducationList: React.FC<{list:education[]}> = ({list}) => {
-  if(!list){
-    return <div></div>
+  if(list.length === 0){
+    return <></>
   }
   return(
     <>
@@ -92,8 +92,8 @@ const EducationList: React.FC<{list:education[]}> = ({list}) => {
 }
 
 const ExperienceList: React.FC<{list:experience[]}> = ({list}) => {
-  if(!list){
-    return <div></div>
+  if(list.length === 0){
+    return <></>
   }
   return(
     <>
@@ -136,8 +136,6 @@ const ExperienceList: React.FC<{list:experience[]}> = ({list}) => {
                 {descriptionListItems}
               </div>
               </div>
-            
-              
               </>
             )
         })
@@ -151,19 +149,17 @@ const ExperienceList: React.FC<{list:experience[]}> = ({list}) => {
 export default function Resume(props:props){ //TODO: Define props type
   const list = props.educationList;
   const expList = props.experienceList;
+  //Conditionally have | dividers based on which info are filled
+  const divide3 = props.basicInfo.githubLink === '' || (props.basicInfo.linkedInLink === '' && props.basicInfo.phoneNumber === '' && props.basicInfo.email === '') ? '': ' | ';
+  const divide1 = props.basicInfo.email === '' || props.basicInfo.phoneNumber === '' ? '':' | ';
+  const divide2 = props.basicInfo.linkedInLink === '' || (props.basicInfo.email === '' && props.basicInfo.phoneNumber === '') ? '':' | ';
   return (
     <>
       <div className='resume'>
         <div className='basic-info-output output'>
           <h1>{props.basicInfo.fullName}</h1>
           <div className='contact-info'>
-            <p className='contact'>{props.basicInfo.phoneNumber}</p>
-            <p>|</p>
-            <p className='contact'>{props.basicInfo.email}</p>
-            <p>|</p>
-            <p className='contact'>{props.basicInfo.linkedInLink}</p>
-            <p>|</p>
-            <p className='contact'>{props.basicInfo.githubLink}</p>
+            <p className='contact'>{props.basicInfo.phoneNumber + " " + divide1 + props.basicInfo.email + " " + divide2 + props.basicInfo.linkedInLink + " " + divide3 + props.basicInfo.githubLink}</p>
           </div>
         </div>
         
