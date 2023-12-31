@@ -33,6 +33,7 @@ h1, h2, h3, h4, h5, h6, p{
   max-width: 595px;
   min-height: 841px;
   max-height: 841px;
+  width: 100%;
 }
 
 .education-output{

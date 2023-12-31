@@ -12,6 +12,7 @@ import ExperienceList from './components/ExperienceList';
 import Icon from '@mdi/react';
 import { mdiArrowDownDropCircleOutline } from '@mdi/js';
 import { mdiArrowUpDropCircleOutline } from '@mdi/js';
+import SavePDF from './components/savePDF';
 
 type education = {
   degree: string,
@@ -312,6 +313,7 @@ function editExperienceListItem(e: any){
       </div>
 
       <div className='cv-outputs'>
+        <SavePDF/>
         <Resume 
         basicInfo = {basicInfo}
         educationList = {educationList}

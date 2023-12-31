@@ -155,18 +155,21 @@ export default function Resume(props:props){ //TODO: Define props type
   const divide2 = props.basicInfo.linkedInLink === '' || (props.basicInfo.email === '' && props.basicInfo.phoneNumber === '') ? '':' | ';
   return (
     <>
-      <div className='resume'>
-        <div className='basic-info-output output'>
-          <h1>{props.basicInfo.fullName}</h1>
-          <div className='contact-info'>
-            <p className='contact'>{props.basicInfo.phoneNumber + " " + divide1 + props.basicInfo.email + " " + divide2 + props.basicInfo.linkedInLink + " " + divide3 + props.basicInfo.githubLink}</p>
+      <div id='resume'>
+        <div className='resume'>
+          <div className='basic-info-output output'>
+            <h1>{props.basicInfo.fullName}</h1>
+            <div className='contact-info'>
+              <p className='contact'>{props.basicInfo.phoneNumber + " " + divide1 + props.basicInfo.email + " " + divide2 + props.basicInfo.linkedInLink + " " + divide3 + props.basicInfo.githubLink}</p>
+            </div>
           </div>
+          
+            <EducationList list={list}
+            />
+            
+          <ExperienceList list={expList}/>
         </div>
         
-          <EducationList list={list}
-          />
-          
-        <ExperienceList list={expList}/>
         
       </div>
     </>
