@@ -12,7 +12,8 @@ import ExperienceList from './components/ExperienceList';
 import Icon from '@mdi/react';
 import { mdiArrowDownDropCircleOutline } from '@mdi/js';
 import { mdiArrowUpDropCircleOutline } from '@mdi/js';
-import SavePDF from './components/savePDF';
+import JsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 type education = {
   degree: string,
@@ -252,7 +253,13 @@ function editExperienceListItem(e: any){
     });
   }
 
-
+  async function savePDF(){
+    const contentCanvas = await html2canvas(document.getElementById('resume'));
+    const report = new JsPDF('portrait', 'pt', 'a4');
+    report.html(document.getElementById('resume')).then(() => {
+      report.save('cv.pdf');
+    });
+  }
 
   return (
     <div className="App">
@@ -313,7 +320,11 @@ function editExperienceListItem(e: any){
       </div>
 
       <div className='cv-outputs'>
-        <SavePDF/>
+      <div className='savePDF'>
+        <button onClick={savePDF}>
+          Download CV
+        </button>
+      </div>
         <Resume 
         basicInfo = {basicInfo}
         educationList = {educationList}
