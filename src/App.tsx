@@ -254,8 +254,7 @@ function editExperienceListItem(e: any){
   }
 
   async function savePDF(){
-    const contentCanvas = await html2canvas(document.getElementById('resume'));
-    const report = new JsPDF('portrait', 'pt', 'a4');
+    var report = new JsPDF('portrait', 'pt', 'a4');
     report.html(document.getElementById('resume')).then(() => {
       report.save('cv.pdf');
     });
