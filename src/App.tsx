@@ -284,10 +284,17 @@ function editExperienceListItem(e: any){
   return (
     <div className="App">
       <div className='cv-inputs'>
+      <div className='cv-buttons'>
         <TemplateLoader 
         onLoadDefault={loadDefaultInfo} 
         onClear={clearDefaultInfo}
         />
+        <div className='savePDF'>
+          <button onClick={savePDF}>
+            Download CV
+          </button>
+        </div>
+      </div>
         <div className='basic-info-container cv-input-field'>
         <BasicInfo 
           onChange={handleBasicInfoChange} 
@@ -340,11 +347,7 @@ function editExperienceListItem(e: any){
       </div>
 
       <div className='cv-outputs'>
-      <div className='savePDF'>
-        <button onClick={savePDF}>
-          Download CV
-        </button>
-      </div>
+
       <div className='resume-container'>
         <Resume 
           basicInfo = {basicInfo}

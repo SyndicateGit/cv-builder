@@ -121,4 +121,6 @@ span.span{
   margin-left: 15px;
 }
 
-
+.cv-buttons{
+  display: flex;
+}
