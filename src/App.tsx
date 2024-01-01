@@ -14,7 +14,7 @@ import { mdiArrowDownDropCircleOutline } from '@mdi/js';
 import { mdiArrowUpDropCircleOutline } from '@mdi/js';
 import JsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-
+import { usePDF } from 'react-to-pdf';
 
 type education = {
   degree: string,
@@ -40,7 +40,7 @@ type experience = {
 function App() {
   // Manages General Information Section.
   const [basicInfo, setBasicInfo] = React.useState(defaultData.BasicInfo)
-
+  
   // Manages Education form
   const[education, setEducation] = React.useState({
    degree: '',
@@ -51,6 +51,8 @@ function App() {
    endDate: '',
    id: uuid(),
   });
+
+
 
   // Manages Educations list of submitted education form
   // Use this list to update resume section upon submission 
@@ -240,6 +242,10 @@ function editExperienceListItem(e: any){
 
   const [educationDisplayDropDown, setEducationDisplayDropDown] = React.useState(displayEducationState);
 
+  //TODO: savePDF using usePDF hook
+
+  // const{toPDF, targetRef} = usePDF({filename: basicInfo.fullName + " cv.pdf"});
+
   function handleExperienceDisplayDropDown(){
     setExperienceDisplayDropDown({
       display: experienceDisplayDropDown.display === 'hide'? 'show':'hide',
@@ -254,20 +260,21 @@ function editExperienceListItem(e: any){
     });
   }
 
+
   async function savePDF(){
-    //TODO: Fix this, problem is canvas not properly conveying css?
+    //TODO: Fix this, problem is canvas not properly conveying div width?
+  
     const canvas = await html2canvas(document.getElementById('resume'));
 
     const image = canvas.toDataURL("image/png");
 
-    // var doc = new JsPDF('portrait', 'pt', [canvas.width, canvas.height]);
+    var doc = new JsPDF('portrait', 'pt', 'a4');
 
-    // doc.addImage(image, 'PNG', 0, 0, canvas.width, canvas.height);
+    doc.addImage(image, 'PNG', 0, 0, 595.28, 592.28/canvas.width * canvas.height);
 
-    // doc.save(basicInfo.fullName + " cv.pdf");
+    doc.save(basicInfo.fullName + " cv.pdf");
 
-    document.body.appendChild(canvas)
-
+    //TODO: JsPDF route to pdf creation
     // var report = new JsPDF('p', 'pt', 'a4');
     // report.html(document.getElementById('resume')).then(() => {
     //   report.save('cv.pdf');
@@ -338,11 +345,14 @@ function editExperienceListItem(e: any){
           Download CV
         </button>
       </div>
+      <div className='resume-container'>
         <Resume 
-        basicInfo = {basicInfo}
-        educationList = {educationList}
-        experienceList={experienceList}
-        />
+          basicInfo = {basicInfo}
+          educationList = {educationList}
+          experienceList={experienceList}
+          />
+      </div>
+        
       </div>
     </div>
   );

@@ -64,7 +64,7 @@ const EducationList: React.FC<{list:education[]}> = ({list}) => {
                   <p className='bold p'>{education.school}</p>
                   </div>
                   <div className='resume-item-bottom-left'>
-                  <i>{education.degree}</i>
+                  <i className='i'>{education.degree}</i>
                   </div>
                   
                 </div>
@@ -73,7 +73,7 @@ const EducationList: React.FC<{list:education[]}> = ({list}) => {
                     <p className='p'>{education.city + " " + education.province}</p>
                   </div>
                   <div className='resume-item-bottom-right'>            
-                  <i>{convertDate(education.startDate) + " - " +convertDate(education.endDate)}
+                  <i className='i'>{convertDate(education.startDate) + " - " +convertDate(education.endDate)}
                   </i>
                   </div>
                 </div>
@@ -108,7 +108,7 @@ const ExperienceList: React.FC<{list:experience[]}> = ({list}) => {
           if(descriptionList[descriptionList.length - 1] === ''){
             descriptionList.pop();
           }
-          const descriptionListItems = descriptionList.map((sentnce:string)=>{return <li><span>{sentnce}</span></li>});
+          const descriptionListItems = descriptionList.map((sentnce:string)=>{return <li><span className='span'>{sentnce}</span></li>});
             return (
               <>
               <div className='experience-list'>
@@ -118,7 +118,7 @@ const ExperienceList: React.FC<{list:experience[]}> = ({list}) => {
                   <p className='bold p'>{experience.jobTitle}</p>
                   </div>
                   <div className='resume-item-bottom-left'>
-                  <i>{experience.company}</i>
+                  <i className='i'>{experience.company}</i>
                   </div>
                   
                 </div>
@@ -127,7 +127,7 @@ const ExperienceList: React.FC<{list:experience[]}> = ({list}) => {
                     <p className='p'>{experience.city + " " + experience.province}</p>
                   </div>
                   <div className='resume-item-bottom-right'>            
-                  <i>{convertDate(experience.startDate) + " - " +convertDate(experience.endDate)}
+                  <i className='i'>{convertDate(experience.startDate) + " - " +convertDate(experience.endDate)}
                   </i>
                   </div>
                 </div>
@@ -155,8 +155,8 @@ export default function Resume(props:props){ //TODO: Define props type
   const divide2 = props.basicInfo.linkedInLink === '' || (props.basicInfo.email === '' && props.basicInfo.phoneNumber === '') ? '':' | ';
 
   const resumeStyles = {
-    width: '595px',
-    height: '841px'
+    width: '685px',
+    height: '931px'
   }
   return (
     <>

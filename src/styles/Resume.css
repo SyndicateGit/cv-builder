@@ -4,30 +4,39 @@ h1, h2, h3, h4, h5, h6, p{
 }
 
 .h1{
-  font-size: 2rem;
+  font-size: 34px;
   font-weight: bold;
 }
 
 /*We need class for all h1 - h6 styling because JsPDF doesn't style them.*/
 .h3{
-  font-size: 1.17rem;
+  font-size: 20px;
   font-weight: bold;
  }
  
 
  p.contact, p.p{
-  font-size: 0.9em;
+  font-size: 13px;
 }
 
 p.bold{
   font-weight: bold;
+  font-size: 15px;
 }
 
+i.i{
+  font-size: 15px;
+}
+
+span.span{
+  font-size: 15px;
+}
 
 .cv-outputs{
   display: flex;
   align-items: start;
   justify-content: center;
+  
 }
 
 .basic-info-output{
@@ -40,24 +49,32 @@ p.bold{
 .contact-info{
   display: flex;
   text-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
 }
 
 
 .resume{
-  padding: 3rem;
-  border: 2px solid;
-
+  display: flex;
+  flex-direction: column;
   /*Dimensions correspond to jsPDF's a4 paper size*/
-  min-width: 595px;
-  max-width: 595px;
-  min-height: 841px;
-  max-height: 841px;
-  width: 100%;
+  min-width: 505px;
+  max-width: 505px;
+  min-height: 751px;
+  max-height: 751px;
 }
 
 #resume{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding: 35px;
+  border: 2px solid black;
   min-width: 595px;
   min-height: 841px;
+  max-width: 595px;
+  max-height: 841px;
 }
 
 .education-output{
@@ -70,7 +87,6 @@ p.bold{
 .resume-list{
   display: flex;
   flex-direction: column;
-  gap: 5px;
 }
 
 .resume-item{
@@ -102,7 +118,7 @@ p.bold{
 }
 
 .bullet-points{
-  margin-left: 1rem;
+  margin-left: 15px;
 }
 
 
