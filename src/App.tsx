@@ -15,6 +15,7 @@ import { mdiArrowUpDropCircleOutline } from '@mdi/js';
 import JsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
+
 type education = {
   degree: string,
   school: string,
@@ -254,10 +255,23 @@ function editExperienceListItem(e: any){
   }
 
   async function savePDF(){
-    var report = new JsPDF('portrait', 'pt', 'a4');
-    report.html(document.getElementById('resume')).then(() => {
-      report.save('cv.pdf');
-    });
+    //TODO: Fix this, problem is canvas not properly conveying css?
+    const canvas = await html2canvas(document.getElementById('resume'));
+
+    const image = canvas.toDataURL("image/png");
+
+    // var doc = new JsPDF('portrait', 'pt', [canvas.width, canvas.height]);
+
+    // doc.addImage(image, 'PNG', 0, 0, canvas.width, canvas.height);
+
+    // doc.save(basicInfo.fullName + " cv.pdf");
+
+    document.body.appendChild(canvas)
+
+    // var report = new JsPDF('p', 'pt', 'a4');
+    // report.html(document.getElementById('resume')).then(() => {
+    //   report.save('cv.pdf');
+    // });
   }
 
   return (

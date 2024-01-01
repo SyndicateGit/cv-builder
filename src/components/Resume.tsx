@@ -50,7 +50,7 @@ const EducationList: React.FC<{list:education[]}> = ({list}) => {
   return(
     <>
     <div className='education-output output'>
-          <h3>Education</h3>
+          <h3 className='h3'>Education</h3>
           <hr/>
           <div className='education-list'>
           {
@@ -61,7 +61,7 @@ const EducationList: React.FC<{list:education[]}> = ({list}) => {
               <div className="resume-item">
                 <div className='resume-item-left'>
                   <div className='resume-item-left'>
-                  <p className='bold'>{education.school}</p>
+                  <p className='bold p'>{education.school}</p>
                   </div>
                   <div className='resume-item-bottom-left'>
                   <i>{education.degree}</i>
@@ -70,7 +70,7 @@ const EducationList: React.FC<{list:education[]}> = ({list}) => {
                 </div>
                 <div className='resume-item-right'>
                   <div className='resume-item-top-right'>
-                    <p>{education.city + " " + education.province}</p>
+                    <p className='p'>{education.city + " " + education.province}</p>
                   </div>
                   <div className='resume-item-bottom-right'>            
                   <i>{convertDate(education.startDate) + " - " +convertDate(education.endDate)}
@@ -98,7 +98,7 @@ const ExperienceList: React.FC<{list:experience[]}> = ({list}) => {
   return(
     <>
       <div className='experience-output output'>
-        <h3>Experience</h3>
+        <h3 className='h3'>Experience</h3>
         <hr/>
         {
         list.map((experience) => {
@@ -115,7 +115,7 @@ const ExperienceList: React.FC<{list:experience[]}> = ({list}) => {
               <div className="resume-item">
                 <div className='resume-item-left'>
                   <div className='resume-item-top-left'>
-                  <p className='bold'>{experience.jobTitle}</p>
+                  <p className='bold p'>{experience.jobTitle}</p>
                   </div>
                   <div className='resume-item-bottom-left'>
                   <i>{experience.company}</i>
@@ -124,7 +124,7 @@ const ExperienceList: React.FC<{list:experience[]}> = ({list}) => {
                 </div>
                 <div className='resume-item-right'>
                   <div className='resume-item-top-right'>
-                    <p>{experience.city + " " + experience.province}</p>
+                    <p className='p'>{experience.city + " " + experience.province}</p>
                   </div>
                   <div className='resume-item-bottom-right'>            
                   <i>{convertDate(experience.startDate) + " - " +convertDate(experience.endDate)}
@@ -153,14 +153,19 @@ export default function Resume(props:props){ //TODO: Define props type
   const divide3 = props.basicInfo.githubLink === '' || (props.basicInfo.linkedInLink === '' && props.basicInfo.phoneNumber === '' && props.basicInfo.email === '') ? '': ' | ';
   const divide1 = props.basicInfo.email === '' || props.basicInfo.phoneNumber === '' ? '':' | ';
   const divide2 = props.basicInfo.linkedInLink === '' || (props.basicInfo.email === '' && props.basicInfo.phoneNumber === '') ? '':' | ';
+
+  const resumeStyles = {
+    width: '595px',
+    height: '841px'
+  }
   return (
     <>
-      <div id='resume'>
+      <div id='resume' style={resumeStyles}>
         <div className='resume'>
           <div className='basic-info-output output'>
-            <h1>{props.basicInfo.fullName}</h1>
+            <h1 className='h1'>{props.basicInfo.fullName}</h1>
             <div className='contact-info'>
-              <p className='contact'>{props.basicInfo.phoneNumber + " " + divide1 + props.basicInfo.email + " " + divide2 + props.basicInfo.linkedInLink + " " + divide3 + props.basicInfo.githubLink}</p>
+              <p className='contact p'>{props.basicInfo.phoneNumber + " " + divide1 + props.basicInfo.email + " " + divide2 + props.basicInfo.linkedInLink + " " + divide3 + props.basicInfo.githubLink}</p>
             </div>
           </div>
           

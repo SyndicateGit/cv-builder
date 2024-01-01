@@ -3,6 +3,25 @@ h1, h2, h3, h4, h5, h6, p{
   margin: 0;
 }
 
+.h1{
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/*We need class for all h1 - h6 styling because JsPDF doesn't style them.*/
+.h3{
+  font-size: 1.17rem;
+  font-weight: bold;
+ }
+ 
+
+ p.contact, p.p{
+  font-size: 0.9em;
+}
+
+p.bold{
+  font-weight: bold;
+}
 
 
 .cv-outputs{
@@ -34,6 +53,11 @@ h1, h2, h3, h4, h5, h6, p{
   min-height: 841px;
   max-height: 841px;
   width: 100%;
+}
+
+#resume{
+  min-width: 595px;
+  min-height: 841px;
 }
 
 .education-output{
@@ -80,4 +104,5 @@ h1, h2, h3, h4, h5, h6, p{
 .bullet-points{
   margin-left: 1rem;
 }
+
 
